@@ -1,0 +1,7 @@
+﻿  Wui.cpp
+d:\desktop\project2\project2\wui.cpp(131): warning C4101: “hBitmap”: 未引用的局部变量
+  White.cpp
+  Operat.cpp
+  正在生成代码...
+  Project2.vcxproj -> D:\Desktop\Project2\Debug\Project2.exe
+  Project2.vcxproj -> D:\Desktop\Project2\Debug\Project2.pdb (Partial PDB)
