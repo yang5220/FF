@@ -7,6 +7,8 @@
 
 ## 实验过程
 
+1.  写一个脚本，内容如下
+
 ```
 # 为poi(esp+8)这个地址中的内容命一个别名 name，相当于 #define name "666"
 # /mu 别名等效于从地址开始的以null结尾的unicode字符串
@@ -24,6 +26,8 @@ g
 
 ### 取别名原因
 - `$scmp("string1","string2")`的参数只接受字符串字面量，如`$scmp("cuc","cuc")`，而不能是`$scmp(poi(esp+8),"cuc")`。
+
+2. 在windbg输入`bp SetWindowTextW "$>+脚本目录"`
 
 
 
