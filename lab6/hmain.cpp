@@ -41,7 +41,7 @@ HANDLE _stdcall Fake_FindFirstFileExW(
 	LPFN_FindFirstFileExW fnOrigin_First = (LPFN_FindFirstFileExW)GetIATHookOrign(g_hHook_FindFirstFileExW);
 	HANDLE hFindFile = fnOrigin_First(lpFileName, finfoLevelId, lpFindFileData, fSearchOp, lpSearchFilter, dwAdditionalFlags);
 	// the target file,skip it
-	if (strcmp(((WIN32_FIND_DATA*)lpFindFileData)->cFileName, FILENAME) == 0) {
+	if (wcscmp(((WIN32_FIND_DATA*)lpFindFileData)->cFileName, TEXT(FILENAME)) == 0) {
 		FindNextFileW(hFindFile, (LPWIN32_FIND_DATAW)lpFindFileData);
 	}
 	return hFindFile; //return the file handle which will be used in FindNextFileW
@@ -55,7 +55,7 @@ BOOL _stdcall Fake_FindNextFileW(
 	LPFN_FindNextFileW fnOrigin_Next = (LPFN_FindNextFileW)GetIATHookOrign(g_hHook_FindNextFileW);
 	ret = fnOrigin_Next(hFindFile, lpFindFileData);
 	// the target file,skip it
-	if (strcmp(((WIN32_FIND_DATA*)lpFindFileData)->cFileName, FILENAME) == 0)
+	if (wcscmp(((WIN32_FIND_DATA*)lpFindFileData)->cFileName, TEXT(FILENAME)) == 0)
 	{
 		ret = FindNextFileW(hFindFile, (LPWIN32_FIND_DATAW)lpFindFileData);
 	}
